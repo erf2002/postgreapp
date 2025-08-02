@@ -24,9 +24,6 @@ spec:
               value: myuser
             - name: POSTGRES_PASSWORD
               value: mypassword
-          volumeMounts:
-            - name: init-sql
-              mountPath: /docker-entrypoint-initdb.d
           resources:
             requests:
               memory: "256Mi"
@@ -34,7 +31,3 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-      volumes:
-        - name: init-sql
-          configMap:
-            name: postgres-init-sql
