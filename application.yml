@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp
+  namespace: argocd
+spec:
+  project: default
+  
+  source:
+    repoURL: https://gitlab.com/20erfan02-group/my-postgres-app.git
+    path: /dev
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: myapp-namespace
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+        prune: true
+        selfHeal: true
