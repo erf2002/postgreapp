@@ -7,7 +7,7 @@ spec:
   project: default
   
   source:
-    repoURL: https://gitlab.com/20erfan02-group/my-postgres-app.git
+    repoURL: https://github.com/erf2002/postgreapp.git
     path: /dev
     targetRevision: HEAD
   destination:
