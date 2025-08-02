@@ -1,0 +1,18 @@
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: my-postgres-cluster
+  namespace: default
+spec:
+  teamId: "myteam"
+  volume:
+    size: 10Gi
+  numberOfInstances: 2
+  users:
+    myuser:  # database user
+      - superuser
+      - createdb
+  databases:
+    mydb: myuser
+  postgresql:
+    version: "14"
